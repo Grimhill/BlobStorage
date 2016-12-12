@@ -1,0 +1,45 @@
+﻿@using MvcApplicationDef.Models;
+<!-- страница просмотра списка загруженных файлов-->
+@model ViewModel
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+<h2 id="header"> Files in the storage</h2>
+
+<div>
+    <table border="1" width=100% align="center" cellpadding="10" cellspacing="5" id="table">
+        <tr>
+            <th>File name</th>
+            <th>Size in biytes</th>
+            <th>Downloaded</th>
+            <th>Download link</th>
+        </tr>
+        <tr>
+            <td>
+                @foreach (var item in Model.Files)
+                {
+                    <div>@item.FileName</div>
+                }            
+            </td>
+
+            <td id="tdn">
+                @foreach (var item in Model.Files)
+                {
+                    <div>@item.Size</div>
+                }            
+            </td>
+
+            <td id="tdn">
+                @foreach (var item in Model.Files)
+                {
+                    <div>@item.Time</div>
+                }           
+            </td>
+
+            <td id="tdn">
+                @foreach (var item in Model.Files)
+                {
+                    <div><a href="@Url.Action("FileDownload", "DownLoad", new { fileName = @item.FileName })">dowload</a></div>
+                }                
+            </td>
+    </table>
+</div>

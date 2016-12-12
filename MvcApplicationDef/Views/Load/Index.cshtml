@@ -1,0 +1,14 @@
+﻿<!-- страница пользователя который загружает файлы-->
+@{
+    ViewBag.Title = "Choose your file and load";
+}
+
+<h2 id="header"> Please select the file to download</h2>
+
+<!--Загрузка файла. Обработка контроллером Load-->
+@using (Html.BeginForm("FileUpload", "Load",
+                    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input name="uploadFile" type="file" />
+    <input type="submit" value="Upload File" />
+}
